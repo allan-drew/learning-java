@@ -1,4 +1,4 @@
-package br.com.cursojava.b23wrappers;
+package br.com.cursojava.c01utilitieswrappers;
 
 public class Wrapper01Test {
 
