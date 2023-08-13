@@ -3,30 +3,66 @@ package br.com.cursojava.c07regex;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PatternMatcherTest01 {
+public class PatternMatcherTest02 {
 
     public static void main(String[] args) {
 
-        // regex (regular expressions)
-        // pode ser usado para encontrar padrões (ex.: encontra todos os emails dentro de um texto)
-        // pode ser usado para validações
+        // META CARACTERES:
 
-        String regex = "ab";
-        String texto = "abaaaabaaaaabababab";
+        // \d --> retorna todos os dígitos
+        String regex = "\\d";
+        String texto = "ufu32e2j430df210";
 
-        // A regular expression, specified as a string, must first be compiled into an instance of this class (Pattern).
-        // compile ---> Compiles the given regular expression into a pattern.
         Pattern pattern01 = Pattern.compile(regex);
-
-        // Matcher --> An engine that performs match operations on a character sequence by interpreting a Pattern.
-        // A matcher is created from a pattern by invoking the pattern's matcher method.
         Matcher matcher = pattern01.matcher(texto);
 
-        // pegando o início dos índices encontrados e os valores agrupados
         while (matcher.find()) {
-            System.out.println("posição no texto: " + matcher.start() + " ==> " + matcher.group());
+            System.out.println("posição: " + matcher.start() + " ==> dígito encontrado: " + matcher.group());
         }
 
+        System.out.println("=====================================");
+
+        // \D --> retorna o que não for dígito
+        String regex02 = "\\D";
+
+        Pattern pattern02 = Pattern.compile(regex02);
+        Matcher matcher02 = pattern02.matcher(texto);
+
+        while (matcher02.find()) {
+            System.out.println("posição: " + matcher02.start() + " ==> Não-dígito encontrado: " + matcher02.group());
+        }
+
+        System.out.println("=====================================");
+
+        // \s --> retorna os espaços em branco (espac branco, \t, \n, \f, \r)
+        // .........
+
+        // \S --> retorna o que não for espaço em branco
+        // .........
+
+        // \w --> retorna o que for a-z A-Z dígitos _(underscore)
+        // ou seja, basicamente exclui os caracteres especiais
+        String regex03 = "\\w";
+        String texto03 = "#@1234_abcz_&ˆABCZ_";
+
+        Pattern pattern03 = Pattern.compile(regex03);
+        Matcher matcher03 = pattern03.matcher(texto03);
+
+        while (matcher03.find()) {
+            System.out.println("posição: " + matcher03.start() + " ==> regex \\w: " + matcher03.group());
+        }
+
+        System.out.println("=====================================");
+
+        // \W --> retorna o que NÃO for \w
+        String regex04 = "\\W";
+
+        Pattern pattern04 = Pattern.compile(regex04);
+        Matcher matcher04 = pattern04.matcher(texto03);
+
+        while (matcher04.find()) {
+            System.out.println("posição: " + matcher04.start() + " ==> regex \\w: " + matcher04.group());
+        }
 
     }
 

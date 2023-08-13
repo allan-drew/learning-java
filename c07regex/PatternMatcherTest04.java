@@ -3,15 +3,20 @@ package br.com.cursojava.c07regex;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PatternMatcherTest03 {
+public class PatternMatcherTest04 {
 
     public static void main(String[] args) {
 
-        // META CARACTERES:
+        // ? -> zero ou uma ocorrência
+        // * -> zero ou mais ocorrências
+        // + -> uma ou mais ocorrências
+        // {n,m} -> de n até m
+        // ()
+        // | -> ou
+        // $ -> fim
 
-        // []
-        String regex = "[abcABC]"; // procura ou a, ou b, ou c, ou A, ou B, ou C. Não procura a sequencia abc, nem ABC, nem abcABC
-        String texto = "Black Coffee";
+        String regex = "0[xX]([0-9a-fA-F])+(\\s|$)"; // Encontrando hexadecimais no texto
+        String texto = "25 0X 0x 0xFFABC 0x121ZZ 0x1F" ;
 
         Pattern pattern01 = Pattern.compile(regex);
         Matcher matcher = pattern01.matcher(texto);
@@ -22,15 +27,6 @@ public class PatternMatcherTest03 {
 
         System.out.println("=====================================");
 
-        // range []
-        String regex02 = "[a-gA-D]"; //procura de a até g e de A até D
-
-        Pattern pattern02 = Pattern.compile(regex02);
-        Matcher matcher02 = pattern02.matcher(texto);
-
-        while (matcher02.find()) {
-            System.out.println("posição: " + matcher02.start() + " ==> : " + matcher02.group());
-        }
 
     }
 
