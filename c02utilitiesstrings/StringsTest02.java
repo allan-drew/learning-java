@@ -1,4 +1,4 @@
-package br.com.cursojava.b24strings;
+package br.com.cursojava.c02utilitiesstrings;
 
 // Desempenho de String vs StringBuilder vs StringBuffer
 
