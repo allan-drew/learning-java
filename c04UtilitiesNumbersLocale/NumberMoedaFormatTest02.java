@@ -3,7 +3,9 @@ package br.com.cursojava.c04UtilitiesNumbersLocale;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class NumberFormatTest01 {
+// Em vez invés de getInstance, iremos usar getCurrencyInstance
+
+public class NumberMoedaFormatTest02 {
 
     public static void main(String[] args) {
 
@@ -14,10 +16,10 @@ public class NumberFormatTest01 {
 
         NumberFormat[] numberFormat = new NumberFormat[4];
 
-        numberFormat[0] = NumberFormat.getInstance(localeBrasil);
-        numberFormat[1] = NumberFormat.getInstance(localeJapao);
-        numberFormat[2] = NumberFormat.getInstance(localeAlemanha);
-        numberFormat[3] = NumberFormat.getInstance(localeEUA);
+        numberFormat[0] = NumberFormat.getCurrencyInstance(localeBrasil);
+        numberFormat[1] = NumberFormat.getCurrencyInstance(localeJapao);
+        numberFormat[2] = NumberFormat.getCurrencyInstance(localeAlemanha);
+        numberFormat[3] = NumberFormat.getCurrencyInstance(localeEUA);
 
         double valorParaTeste = 163_503_119.21;
 
@@ -26,7 +28,7 @@ public class NumberFormatTest01 {
 //            System.out.println(nf.format(valorParaTeste));
 //        }
 
-        System.out.println("---------- formatação para NÚMEROS utilizando Locale ----------");
+        System.out.println("---------- formatação para MOEDAS utilizando Locale ----------");
 
         for (int i = 0; i < numberFormat.length; i++) {
 
